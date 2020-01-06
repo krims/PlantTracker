@@ -1,34 +1,31 @@
 package org.krimeet;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.util.Optional;
-
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.krimeet.dao.PlantRepository;
 import org.krimeet.entities.Plant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(classes = TrackerApplication.class)
-public class DbTest {
+@SpringBootTest
+public class PlantRepositoryTest {
 	@Autowired
 	private PlantRepository plantRepo;
 
+	@DisplayName("given object to save" + " when save object using MongoDB template" + " then object is saved")
 	@Test
-	public void givenCrudRepo_whenSaveAndRetrieveEntity_thenOK() {
+	public void test(@Autowired MongoTemplate mongoTemplate) {
 		Plant plant = new Plant();
 		plant.setAlias("Snake Plant");
 		plant.setGenus("Sansevieria");
 		plant.setSchedule("2 weeks");
 		Plant savedPlant = plantRepo.save(plant);
-		Optional<Plant> foundPlant = plantRepo.findById(savedPlant.id);
+		// Optional<Plant> foundPlant = plantRepo.
 
-		assertTrue(foundPlant.isPresent());
-		assertEquals(savedPlant.getAlias(), foundPlant.get().getAlias());
+		// assertTrue(foundPlant.isPresent());
+
 	}
 }

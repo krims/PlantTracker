@@ -2,24 +2,17 @@ package org.krimeet.entities;
 
 import java.util.List;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
 
-@Entity
 public class Plant {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	public Long id;
+	public String id;
 
 	private String alias; // snake plant
 	private String genus; // Sansevieria
 	private String species; // S. trifasciata
 	private String schedule; // 2 weeks
-	@ElementCollection
 	private List<String> tags; // succulent, living room
 
 	public String getAlias() {
