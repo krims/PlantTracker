@@ -1,4 +1,4 @@
-package org.krimeet.service;
+package org.krimeet;
 
 import org.krimeet.entities.Plant;
 import org.slf4j.Logger;
