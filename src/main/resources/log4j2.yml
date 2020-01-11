@@ -1,0 +1,9 @@
+Configuration:
+  name: Default
+  
+  Appenders:
+    Console:
+      name: Console_Appender
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
